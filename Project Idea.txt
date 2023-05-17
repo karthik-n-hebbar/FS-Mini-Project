@@ -1,0 +1,36 @@
+THREE FILES:(.txt form)
+1. Flight details
+2. Passengers details
+3. Booking details
+
+- Flight details:-
+	* Arrival Time
+	* Departure Time
+	* Flight duration
+	* Crew details
+		> Capitan
+		> Pilot
+		> Air Hostess
+	* Classes and Pricing
+	* Capacity
+	* Flight No.
+	* Type
+
+- Passengers details:-
+	* Contact Details
+	* Passenger Name
+	* Age
+	* Nationality
+
+- Booking details:-
+	* PNR
+	* Class and Seat No.
+	* Price
+	* Food Preferences
+	* Arival and Depature Time
+	* Seats Available
+	* Seat Booked
+	* Seat Layout
+	* Flight No.
+
+	
