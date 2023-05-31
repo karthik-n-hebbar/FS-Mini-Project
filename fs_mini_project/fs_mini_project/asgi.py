@@ -1,5 +1,5 @@
 """
-ASGI config for skywing project.
+ASGI config for fs_mini_project project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skywing.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fs_mini_project.settings')
 
 application = get_asgi_application()
