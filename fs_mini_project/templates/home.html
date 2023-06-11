@@ -9,15 +9,14 @@ SkyWing
 
 {% block body %}
 <div class="content">
-    <div id="main">
-    </div>
-    <button type="button"><span></span>Flight Booking</button>
+    <div id="vanta"></div>
+    <button type="button" onclick="location.href='{% url 'booking' %}'"><span></span>Flight Booking</a></button>
 </div>
 <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js' %}"></script>
 <script src="{% static 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js' %}"></script>
 <script>
     VANTA.NET({
-        el: "#main",
+        el: "#vanta",
         mouseControls: true,
         touchControls: true,
         gyroControls: false,

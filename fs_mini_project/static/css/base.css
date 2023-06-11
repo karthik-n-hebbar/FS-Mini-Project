@@ -10,6 +10,7 @@ html {
 body {
     position: relative;
     margin: 0;
+    width: 100%;
     min-height: 98.5%;
     /* padding-bottom: 80px; */
     box-sizing: inherit;
@@ -37,12 +38,17 @@ footer {
 
 .content {
     width: 98%;
-    height: 60vh;
+    height: 75vh;
     position: absolute;
     text-align: center;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
+}
+
+#vanta {
+    width: 80%;
+    height: auto;
 }
 
 button {
@@ -59,7 +65,7 @@ button {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    top: 50%;
+    top: 80%;
 }
 
 span {
@@ -116,5 +122,15 @@ tr td{
     background-color: rgba(95, 165, 117, 0.386);
     display: block;
     padding: 30px;
+    text-align: justify;
+}
+
+
+/* booking.html */
+
+.booking {
+    width: 100%;
+    height: auto;
+    padding: 5px 0;
     text-align: justify;
 }
