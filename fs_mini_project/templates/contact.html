@@ -1,9 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
 
 {% block title %}
 Contact US
 {% endblock %}
 
+
 {% block body %}
-<h1>This is a Contact page</h1>
+<div class="container1">
+    <h1>Connect With Us <br><br></h1>
+    <p>Thank you for visiting our website!</p>
+    <p>We value your feedback and are always here to help with any questions or concerns you may have.</p>
+    <div class="contact-box">
+        <h3 class="contact-title">Reach Us</h3>
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>karthiknh125@.com</td>
+                <td>ron99.rm@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>9480991190</td>
+                <td>9538663563</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>#212, Ground Floor, 7th Main, 4th A Cross <br>
+                    Vijaynagar <br>
+                    Bengaluru 560040</td>
+            </tr>
+        </table>
+    </div>
+</div>
 {% endblock %}

@@ -81,3 +81,39 @@ button:hover span {
 button:hover {
     border: none;
 }
+
+/* contact.html */
+
+.container1 {
+    width: 50%;
+    margin: 50px auto;   
+}
+
+.contact-box {
+    background-color: rgba(95, 165, 117, 0.386);
+    display: block;
+    padding: 30px;
+}
+
+tr td:first-child {
+    padding-right: 20px;
+}
+
+tr td{
+    padding-top: 20px;
+}
+
+
+/* about.html */
+
+.container2 {
+    width: 80%;
+    margin: 50px auto;   
+}
+
+.content2 {
+    background-color: rgba(95, 165, 117, 0.386);
+    display: block;
+    padding: 30px;
+    text-align: justify;
+}
