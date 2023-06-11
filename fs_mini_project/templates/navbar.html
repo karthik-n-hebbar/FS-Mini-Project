@@ -1,6 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
 <div class="nav">
+    <img src="{% static 'images/logo.png' %}" alt="" class="logo">
     <ul>
         <li><a href="{% url 'home' %}">HOME</a></li>
+        <li><a href=#>REGISTER/LOGIN</a></li>
         <li><a href="{% url 'contact' %}">CONTACT US</a></li> 
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
     </ul>

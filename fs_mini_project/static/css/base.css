@@ -10,20 +10,74 @@ html {
 body {
     position: relative;
     margin: 0;
-    min-height: 100%;
-    padding-bottom: 80px;
-    padding-left: 40px;
-    padding-right: 40px;
+    min-height: 98.5%;
+    /* padding-bottom: 80px; */
     box-sizing: inherit;
+    background-color: white;
+    align-items: center;
+}
+
+.container {
+    margin: 30px;
+    align-items: center;
 }
 
 footer {
-    background-color: rgba(0, 128, 0, 0.668);
-    font-size: 20px;
-    padding: 30px;
+    background-color: rgba(95, 165, 117, 0.479);
+    font-size: 17.5px;
+    padding: 25px;
     text-align: center;
     position: absolute;
     right: 0;
     left: 0;
     bottom: 0;
+}
+
+/* home.html CSS */
+
+.content {
+    width: 98%;
+    height: 60vh;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px 0;
+    font-weight: bold;
+    border-radius: 25px;
+    margin: auto;
+    border: 2px solid #009688;
+    background: transparent;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+}
+
+span {
+    background-color: #0096879c;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
 }

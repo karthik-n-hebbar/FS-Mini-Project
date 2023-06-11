@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 {% block title %}
 SkyWing
 {% endblock %}
 
 {% block body %}
+<div class="content">
+    <button type="button"><span></span>Flight Booking</button>
+</div>
 {% endblock %}
