@@ -1,0 +1,6 @@
+h1 {
+    color: rgb(226, 137, 137);
+}
+.bgimage {
+    background-image: url("{% static 'img/home_page_bg.jpg' %}");
+}

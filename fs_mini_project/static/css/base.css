@@ -1,0 +1,29 @@
+h1 {
+    color: rgb(53, 68, 234);
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    padding-bottom: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: inherit;
+}
+
+footer {
+    background-color: rgba(0, 128, 0, 0.668);
+    font-size: 20px;
+    padding: 30px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
