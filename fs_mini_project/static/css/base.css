@@ -16,6 +16,7 @@ body {
     box-sizing: inherit;
     background-color: white;
     align-items: center;
+    justify-content: center;
 }
 
 .container {
@@ -36,94 +37,11 @@ footer {
 
 /* home.html CSS */
 
-.content {
-    width: 98%;
-    height: 75vh;
-    position: absolute;
-    text-align: center;
-    display: block;
-    align-items: center;
-    justify-content: center;
-}
-
-#vanta {
-    width: 80%;
-    height: auto;
-}
-
-button {
-    width: 200px;
-    padding: 10px;
-    text-align: center;
-    font-size: 15px 0;
-    font-weight: bold;
-    border-radius: 25px;
-    margin: auto;
-    border: 2px solid #009688;
-    background: transparent;
-    color: black;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    top: 80%;
-}
-
-span {
-    background-color: #0096879c;
-    height: 100%;
-    width: 0;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: 0.25s;
-}
-
-button:hover span {
-    width: 100%;
-}
-
-button:hover {
-    border: none;
-}
-
 
 /* contact.html */
 
-.container1 {
-    width: 50%;
-    margin: 50px auto;   
-}
-
-.contact-box {
-    background-color: rgba(95, 165, 117, 0.386);
-    display: block;
-    padding: 30px;
-}
-
-tr td:first-child {
-    padding-right: 20px;
-}
-
-tr td{
-    padding-top: 20px;
-}
-
 
 /* about.html */
-
-.container2 {
-    width: 80%;
-    margin: 50px auto;   
-}
-
-.content2 {
-    background-color: rgba(95, 165, 117, 0.386);
-    display: block;
-    padding: 30px;
-    text-align: justify;
-}
 
 
 /* booking.html */

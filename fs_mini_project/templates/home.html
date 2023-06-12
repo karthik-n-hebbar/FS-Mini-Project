@@ -1,17 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-
 {% block title %}
 SkyWing
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="javascript" href="{% static 'js/home.js' %}">
 {% endblock %}
 
 {% block body %}
 <div class="content">
     <div id="vanta"></div>
-    <button type="button" onclick="location.href='{% url 'booking' %}'"><span></span>Flight Booking</a></button>
+    <div class="tab-container">
+        <div class="button-container">
+            <button>Flight</button>
+            <button>My Bookings</button>
+            <button>Flight Status</button>
+        </div>
+        <div class="tab-content">
+            <div id="flight">
+                <p>Flight Tab</p>
+            </div>
+            <div id="my-booking">
+                <p>My Booking Tab</p>
+            </div>
+            <div id="flight-status">
+                <p>Flight Status Tab</p>
+            </div>
+        </div>
+    </div>
+    <!-- <button type="button" onclick="location.href='{% url 'booking' %}'"><span></span>Flight Booking</a></button> -->
 </div>
+{% endblock %}
+
+{% block script %}
 <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js' %}"></script>
 <script src="{% static 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js' %}"></script>
 <script>

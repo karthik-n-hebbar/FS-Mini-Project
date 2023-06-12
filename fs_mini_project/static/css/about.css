@@ -1,0 +1,11 @@
+.container2 {
+    width: 80%;
+    margin: 50px auto;   
+}
+
+.content2 {
+    background-color: rgba(95, 165, 117, 0.386);
+    display: block;
+    padding: 30px;
+    text-align: justify;
+}
