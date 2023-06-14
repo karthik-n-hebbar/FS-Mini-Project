@@ -7,7 +7,7 @@ SkyWing
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
-<link rel="javascript" href="{% static 'js/home.js' %}">
+<script src="{% static 'js/home.js' %}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -15,23 +15,74 @@ SkyWing
     <div id="vanta"></div>
     <div class="tab-container">
         <div class="button-container">
-            <button>Flight</button>
-            <button>My Bookings</button>
-            <button>Flight Status</button>
+            <button class="tab-btn active">Flights</button>
+            <button class="tab-btn">My Bookings</button>
+            <button class="tab-btn">Flight Status</button>
         </div>
         <div class="tab-content">
-            <div id="flight">
-                <p>Flight Tab</p>
+            <div id="flight" class="content-page active">
+                <div class="flight-title">
+                    <p>Flights</p>
+                </div>
+                <div id="flight-tab">
+                    <select name="origin" class="tab-content-btn" id="origin">
+                        <option value="">Origin</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="NewDelhi">NewDelhi</option>
+                        <option value="Kolkata">Kolkata</option>
+                    </select>
+                    <select name="destination" class="tab-content-btn" id="destination">
+                        <option value="">Destination</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="NewDelhi">NewDelhi</option>
+                        <option value="Kolkata">Kolkata</option>
+                    </select>
+                    <input type="date" class="tab-content-btn" id="departure">
+                    <input type="text" name="no_of_passengers" class="tab-content-btn" id="no_of_passengers"
+                        placeholder="Number Of Passengers">
+                </div>
+                <button type="submit" class="submit" class="tab-content-btn" id="home-submit"><span></span>SUBMIT</button>
             </div>
-            <div id="my-booking">
-                <p>My Booking Tab</p>
+
+
+            <div id="my-booking" class="content-page">
+                <div class="my-bookings-title">
+                    <p>My Bookings</p>
+                </div>
+                <div id="my-bookings-tab">
+                    <input type="text" name="ticket_number" id="ticket_number" class="tab-content-btn", placeholder="Ticket Number">
+                    <input type="text" name="passenger_first_name" id="passenger_first_name" class="tab-content-btn", placeholder="Passenger First Name">
+                </div>
+                <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"><span></span>SUBMIT</button>
             </div>
-            <div id="flight-status">
-                <p>Flight Status Tab</p>
+
+            
+            <div id="flight-status" class="content-page">
+                <div class="flight-status-title">
+                    <p>Flight Status</p>
+                </div>
+                <div id="flight-stauts-tab">
+                    <input type="text" name="flight_number" id="flight_number" class="tab-content-btn", placeholder="Flight Number">
+                    <select name="origin" class="tab-content-btn" id="origin">
+                        <option value="">Origin</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="NewDelhi">NewDelhi</option>
+                        <option value="Kolkata">Kolkata</option>
+                    </select>
+                    <input type="date" name="date" id="date" class="tab-content-btn">
+                </div>
+                <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"><span></span>SUBMIT</button>
             </div>
+
+
         </div>
     </div>
-    <!-- <button type="button" onclick="location.href='{% url 'booking' %}'"><span></span>Flight Booking</a></button> -->
 </div>
 {% endblock %}
 
