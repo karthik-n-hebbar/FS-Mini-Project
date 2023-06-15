@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    file_path = 'static/booking.txt' 
+    file_path = 'static/flights.txt' 
     lines = []
 
     with open(file_path, 'r') as file:
