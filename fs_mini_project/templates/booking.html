@@ -7,6 +7,8 @@ Flight Booking
 
 {% block body %}
 <div class="booking" style="background-color: rgb(227, 214, 214); height:100px">
-   <pre>{{ file_contents }}</pre>
+   {% for city_name in lines %}
+   {{ city_name }}
+   {% endfor %}
 </div>
 {% endblock %}

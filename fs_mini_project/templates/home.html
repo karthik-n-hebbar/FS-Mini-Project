@@ -12,93 +12,124 @@ SkyWing
 
 {% block body %}
 <div class="content">
-    <div id="vanta"></div>
-    <div class="tab-container">
-        <div class="button-container">
-            <button class="tab-btn active">Flights</button>
-            <button class="tab-btn">My Bookings</button>
-            <button class="tab-btn">Flight Status</button>
-        </div>
-        <div class="tab-content">
-            <div id="flight" class="content-page active">
-                <div class="flight-title">
-                    <p>Flights</p>
-                </div>
-                <div id="flight-tab">
-                    <select name="origin" class="tab-content-btn" id="origin">
-                        <option value="">Origin</option>
-                        <option value="Bengaluru">Bengaluru</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="NewDelhi">NewDelhi</option>
-                        <option value="Kolkata">Kolkata</option>
-                    </select>
-                    <select name="destination" class="tab-content-btn" id="destination">
-                        <option value="">Destination</option>
-                        <option value="Bengaluru">Bengaluru</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="NewDelhi">NewDelhi</option>
-                        <option value="Kolkata">Kolkata</option>
-                    </select>
-                    <input type="date" class="tab-content-btn" id="departure">
-                    <input type="text" name="no_of_passengers" class="tab-content-btn" id="no_of_passengers"
-                        placeholder="Number Of Passengers">
-                </div>
-                <button type="submit" class="submit" class="tab-content-btn" id="home-submit"><span></span>SUBMIT</button>
+    <div id="vanta_container">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+        <script>
+            VANTA.BIRDS({
+                el: "#vanta_container",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                backgroundColor: 0xffffff
+            })
+        </script>
+        <div class="tab-container">
+            <div class="button-container">
+                <button class="tab-btn active">Flights</button>
+                <button class="tab-btn">My Bookings</button>
+                <button class="tab-btn">Flight Status</button>
             </div>
+            <div class="tab-content">
+                <div id="flight" class="content-page active">
+                    <div class="flight-title">
+                        <p>Flights</p>
+                    </div>
+                    <div id="flight-tab">
+
+                        <select name="origin" class="tab-content-btn" id="origin">
+                            <option value="">Origin</option>
+                            {% for city_name in lines %}
+                            <option value="{{ city_name }}">{{ city_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <!-- <select name="origin" class="tab-content-btn" id="origin">
+                            <option value="">Origin</option>
+                            <option value="Bengaluru">Bengaluru</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="NewDelhi">NewDelhi</option>
+                            <option value="Kolkata">Kolkata</option>
+                        </select> -->
+
+                        <select name="destination" class="tab-content-btn" id="destination">
+                            <option value="">Destination</option>
+                            {% for city_name in lines %}
+                            <option value="{{ city_name }}">{{ city_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <!-- <select name="destination" class="tab-content-btn" id="destination">
+                            <option value="">Destination</option>
+                            <option value="Bengaluru">Bengaluru</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="NewDelhi">NewDelhi</option>
+                            <option value="Kolkata">Kolkata</option>
+                        </select> -->
+
+                        <input type="date" class="tab-content-btn" id="departure">
+                        <input type="text" name="no_of_passengers" class="tab-content-btn" id="no_of_passengers"
+                            placeholder="Number Of Passengers">
+                    </div>
+                    <button type="submit" class="submit" class="tab-content-btn"
+                        id="home-submit" onclick="location.href='{% url 'flights' %}'"><span></span>SUBMIT</button>
+                </div>
 
 
-            <div id="my-booking" class="content-page">
-                <div class="my-bookings-title">
-                    <p>My Bookings</p>
+                <div id="my-booking" class="content-page">
+                    <div class="my-bookings-title">
+                        <p>My Bookings</p>
+                    </div>
+                    <div id="my-bookings-tab">
+                        <input type="text" name="ticket_number" id="ticket_number" class="tab-content-btn" ,
+                            placeholder="Ticket Number">
+                        <input type="text" name="passenger_first_name" id="passenger_first_name" class="tab-content-btn"
+                            , placeholder="Passenger First Name">
+                    </div>
+                    <button type="submit" class="submit" class="flight-tab-btn"
+                        id="home-submit" onclick="location.href='{% url 'my_bookings' %}'"><span></span>SUBMIT</button>
                 </div>
-                <div id="my-bookings-tab">
-                    <input type="text" name="ticket_number" id="ticket_number" class="tab-content-btn", placeholder="Ticket Number">
-                    <input type="text" name="passenger_first_name" id="passenger_first_name" class="tab-content-btn", placeholder="Passenger First Name">
+
+
+                <div id="flight-status" class="content-page">
+                    <div class="flight-status-title">
+                        <p>Flight Status</p>
+                    </div>
+                    <div id="flight-stauts-tab">
+                        <input type="text" name="flight_number" id="flight_number" class="tab-content-btn" ,
+                            placeholder="Flight Number">
+
+                        <select name="origin" class="tab-content-btn" id="status-origin">
+                            <option value="">Origin</option>
+                            {% for city_name in lines %}
+                            <option value="{{ city_name }}">{{ city_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <!-- <select name="origin" class="tab-content-btn" id="origin">
+                            <option value="">Origin</option>
+                            <option value="Bengaluru">Bengaluru</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="NewDelhi">NewDelhi</option>
+                            <option value="Kolkata">Kolkata</option>
+                        </select> -->
+
+                        <input type="date" name="date" id="date" class="tab-content-btn">
+                    </div>
+                    <button type="submit" class="submit" class="flight-tab-btn"
+                        id="home-submit" onclick="location.href='{% url 'flight_status' %}'"><span></span>SUBMIT</button>
                 </div>
-                <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"><span></span>SUBMIT</button>
+
+
             </div>
-
-            
-            <div id="flight-status" class="content-page">
-                <div class="flight-status-title">
-                    <p>Flight Status</p>
-                </div>
-                <div id="flight-stauts-tab">
-                    <input type="text" name="flight_number" id="flight_number" class="tab-content-btn", placeholder="Flight Number">
-                    <select name="origin" class="tab-content-btn" id="origin">
-                        <option value="">Origin</option>
-                        <option value="Bengaluru">Bengaluru</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="NewDelhi">NewDelhi</option>
-                        <option value="Kolkata">Kolkata</option>
-                    </select>
-                    <input type="date" name="date" id="date" class="tab-content-btn">
-                </div>
-                <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"><span></span>SUBMIT</button>
-            </div>
-
-
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block script %}
-<script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js' %}"></script>
-<script src="{% static 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js' %}"></script>
-<script>
-    VANTA.NET({
-        el: "#vanta",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00
-    })
-</script>
 {% endblock %}

@@ -4,7 +4,15 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, "home.html")
+    file_path = 'static/booking.txt' 
+    lines = []
+
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    
+    return render(request, 'home.html', {'lines' : lines} )
+
+    # return render(request, "home.html")
 
 def contact(request):
     return render(request, "contact.html")
@@ -12,19 +20,15 @@ def contact(request):
 def about(request):
     return render(request, "about.html")
 
-
-
 def booking(request):
     return render(request, "booking.html")
-    file_path = 'fs_mini_project\skywing\booking.txt'  # Replace with the actual file path in your project's base directory
+    
+def flights(request):
+    return render(request, "flights.html")
 
-    with open(file_path, 'r') as file:
-        file_contents = file.read()
+def my_bookings(request):
+    return render(request, "my_bookings.html")
 
-    context = {'file_contents': file_contents}
-    return render(request, 'booking.html', context)
-
-from django.shortcuts import render
-
-#def view_file(request):
+def flight_status(request):
+    return render(request, "flight_status.html")
     
