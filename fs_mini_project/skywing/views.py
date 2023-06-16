@@ -5,14 +5,32 @@ from django.shortcuts import render
 
 def home(request):
     file_path = 'static/flights.txt' 
-    lines = []
+
+    # For Departure Cities
+
+    departure_cities = []
 
     with open(file_path, 'r') as file:
-        lines = file.readlines()
-    
-    return render(request, 'home.html', {'lines' : lines} )
+        for line in file:
+            fields = line.split('|')
+            departure_city = fields[3].strip().split(': ')[1]  # Extract only the city name
+            departure_cities.append(departure_city)
 
-    # return render(request, "home.html")
+    # context_1 = {'departure_cities': departure_cities}
+
+    # For Arrival Cities
+
+    arrival_cities = []
+
+    with open(file_path, 'r') as file:
+        for line in file:
+            fields = line.split('|')
+            arrival_city = fields[5].strip().split(': ')[1]  # Extract only the city name
+            arrival_cities.append(arrival_city)
+
+    context = {'arrival_cities': arrival_cities, 'departure_cities': departure_cities}
+
+    return render(request, 'home.html', context)
 
 def contact(request):
     return render(request, "contact.html")

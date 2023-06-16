@@ -41,39 +41,21 @@ SkyWing
                     </div>
                     <div id="flight-tab">
 
-                        <select name="origin" class="tab-content-btn" id="origin">
-                            <option value="">Origin</option>
-                            {% for city_name in lines %}
-                            <option value="{{ city_name }}">{{ city_name }}</option>
+                        <select name="departure" class="tab-content-btn" id="departure">
+                            <option value="">Departure</option>
+                            {% for city in departure_cities %}
+                            <option value="{{ city }}">{{ city }}</option>
                             {% endfor %}
                         </select>
 
-                        <!-- <select name="origin" class="tab-content-btn" id="origin">
-                            <option value="">Origin</option>
-                            <option value="Bengaluru">Bengaluru</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="NewDelhi">NewDelhi</option>
-                            <option value="Kolkata">Kolkata</option>
-                        </select> -->
-
-                        <select name="destination" class="tab-content-btn" id="destination">
-                            <option value="">Destination</option>
-                            {% for city_name in lines %}
-                            <option value="{{ city_name }}">{{ city_name }}</option>
+                        <select name="arrival" class="tab-content-btn" id="arrival">
+                            <option value="">Arrival</option>
+                            {% for city in arrival_cities %}
+                            <option value="{{ city }}">{{ city }}</option>
                             {% endfor %}
                         </select>
 
-                        <!-- <select name="destination" class="tab-content-btn" id="destination">
-                            <option value="">Destination</option>
-                            <option value="Bengaluru">Bengaluru</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="NewDelhi">NewDelhi</option>
-                            <option value="Kolkata">Kolkata</option>
-                        </select> -->
-
-                        <input type="date" class="tab-content-btn" id="departure">
+                        <input type="date" class="tab-content-btn" id="date">
                         <input type="text" name="no_of_passengers" class="tab-content-btn" id="no_of_passengers"
                             placeholder="Number Of Passengers">
                     </div>
@@ -105,21 +87,12 @@ SkyWing
                         <input type="text" name="flight_number" id="flight_number" class="tab-content-btn" ,
                             placeholder="Flight Number">
 
-                        <select name="origin" class="tab-content-btn" id="status-origin">
-                            <option value="">Origin</option>
+                        <select name="departure" class="tab-content-btn" id="status-departure">
+                            <option value="">Departure</option>
                             {% for city_name in lines %}
                             <option value="{{ city_name }}">{{ city_name }}</option>
                             {% endfor %}
                         </select>
-
-                        <!-- <select name="origin" class="tab-content-btn" id="origin">
-                            <option value="">Origin</option>
-                            <option value="Bengaluru">Bengaluru</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="NewDelhi">NewDelhi</option>
-                            <option value="Kolkata">Kolkata</option>
-                        </select> -->
 
                         <input type="date" name="date" id="date" class="tab-content-btn">
                     </div>

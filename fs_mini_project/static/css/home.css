@@ -97,17 +97,11 @@
     justify-content: space-between;
 }
 
-.flight-title,
-.my-bookings-title,
-.flight-status-title {
+.flight-title, .my-bookings-title, .flight-status-title {
     text-align: left;
     font-size: 20px;
     margin-left: 10px;
     font-weight: bold;
-}
-
-#departure {
-    height: 30px;
 }
 
 #no_of_passengers {

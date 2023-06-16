@@ -1,7 +1,10 @@
-Bengaluru
-Chennai
-Mumbai
-NewDelhi
-Kolkata
-Jaipur
-Pune
+Flight Number: AI101 | Airline: Air India | Aircraft Type: Boeing 737 | Departure City: Mumbai | Departure Airport: BOM | Arrival City: Delhi | Arrival Airport: DEL | Seat Capacity: 180 | Departure Time: 09:00 AM | Arrival Time: 11:30 AM
+Flight Number: 6E231 | Airline: IndiGo | Aircraft Type: Airbus A320 | Departure City: Kolkata | Departure Airport: CCU | Arrival City: Chennai | Arrival Airport: MAA | Seat Capacity: 160 | Departure Time: 10:30 AM | Arrival Time: 01:15 PM
+Flight Number: SG875 | Airline: SpiceJet | Aircraft Type: Bombardier Q400 | Departure City: Jaipur | Departure Airport: JAI | Arrival City: Mumbai | Arrival Airport: BOM | Seat Capacity: 80 | Departure Time: 02:45 PM | Arrival Time: 05:30 PM
+Flight Number: UK820 | Airline: Vistara | Aircraft Type: Airbus A320neo | Departure City: Delhi | Departure Airport: DEL | Arrival City: Bangalore | Arrival Airport: BLR | Seat Capacity: 180 | Departure Time: 08:15 AM | Arrival Time: 11:30 AM
+Flight Number: G8396 | Airline: GoAir | Aircraft Type: Airbus A320 | Departure City: Ahmedabad | Departure Airport: AMD | Arrival City: Goa | Arrival Airport: GOI | Seat Capacity: 168 | Departure Time: 11:45 AM | Arrival Time: 01:45 PM
+Flight Number: 9W612 | Airline: Jet Airways | Aircraft Type: Boeing 737 | Departure City: Chennai | Departure Airport: MAA | Arrival City: Hyderabad | Arrival Airport: HYD | Seat Capacity: 160 | Departure Time: 12:30 PM | Arrival Time: 02:15 PM
+Flight Number: I5432 | Airline: IndiFly | Aircraft Type: ATR 72 | Departure City: Coimbatore | Departure Airport: CJB | Arrival City: Kochi | Arrival Airport: COK | Seat Capacity: 70 | Departure Time: 04:45 PM | Arrival Time: 06:15 PM
+Flight Number: AI760 | Airline: Air India | Aircraft Type: Airbus A320 | Departure City: Bangalore | Departure Airport: BLR | Arrival City: Mumbai | Arrival Airport: BOM | Seat Capacity: 180 | Departure Time: 07:00 AM | Arrival Time: 09:30 AM
+Flight Number: SG452 | Airline: SpiceJet | Aircraft Type: Boeing 737 | Departure City: Hyderabad | Departure Airport: HYD | Arrival City: Kolkata | Arrival Airport: CCU | Seat Capacity: 168 | Departure Time: 03:15 PM | Arrival Time: 05:45 PM
+Flight Number: 6E431 | Airline: IndiGo | Aircraft Type: Airbus A320 | Departure City: Goa | Departure Airport: GOI | Arrival City: Jaipur | Arrival Airport: JAI | Seat Capacity: 160 | Departure Time: 01:30 PM | Arrival Time: 04:15 PM
