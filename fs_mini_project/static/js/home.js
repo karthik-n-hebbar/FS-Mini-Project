@@ -12,4 +12,4 @@ tabs.forEach((tab, index) => {
 
 function submitForm() {
     document.getElementById("departure_city").form.submit();
-  }
+}
