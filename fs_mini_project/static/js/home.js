@@ -9,3 +9,7 @@ tabs.forEach((tab, index) => {
         all_content[index].classList.add('active');
     })
 })
+
+function submitForm() {
+    document.getElementById("departure_city").form.submit();
+  }

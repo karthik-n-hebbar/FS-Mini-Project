@@ -40,27 +40,27 @@ SkyWing
                         <p>Flights</p>
                     </div>
                     <div id="flight-tab">
-
-                        <select name="departure" class="tab-content-btn" id="departure">
-                            <option value="">Departure</option>
-                            {% for city in departure_cities %}
-                            <option value="{{ city }}">{{ city }}</option>
-                            {% endfor %}
-                        </select>
-
-                        <select name="arrival" class="tab-content-btn" id="arrival">
-                            <option value="">Arrival</option>
+                        <form method="post" action="{% url 'home' %}">
+                            {% csrf_token %}
+                            <select name="departure_city" id="departure_city" class="tab-content-btn" onchange="submitForm()">
+                              {% for city in departure_cities %}
+                              <option value="{{ city }}" {% if selected_departure == city %}selected{% endif %}>{{ city }}</option>
+                              {% endfor %}
+                            </select>
+                          </form>
+                          
+                          <select name="arrival_city" class="tab-content-btn" id="arrival_city">
                             {% for city in arrival_cities %}
                             <option value="{{ city }}">{{ city }}</option>
                             {% endfor %}
-                        </select>
-
+                          </select>
+                    
                         <input type="date" class="tab-content-btn" id="date">
                         <input type="text" name="no_of_passengers" class="tab-content-btn" id="no_of_passengers"
                             placeholder="Number Of Passengers">
                     </div>
-                    <button type="submit" class="submit" class="tab-content-btn"
-                        id="home-submit" onclick="location.href='{% url 'flights' %}'"><span></span>SUBMIT</button>
+                    <button type="submit" class="submit" class="tab-content-btn" id="home-submit"
+                        onclick="location.href='{% url 'flights' %}'"><span></span>SUBMIT</button>
                 </div>
 
 
@@ -74,8 +74,8 @@ SkyWing
                         <input type="text" name="passenger_first_name" id="passenger_first_name" class="tab-content-btn"
                             , placeholder="Passenger First Name">
                     </div>
-                    <button type="submit" class="submit" class="flight-tab-btn"
-                        id="home-submit" onclick="location.href='{% url 'my_bookings' %}'"><span></span>SUBMIT</button>
+                    <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"
+                        onclick="location.href='{% url 'my_bookings' %}'"><span></span>SUBMIT</button>
                 </div>
 
 
@@ -89,15 +89,15 @@ SkyWing
 
                         <select name="departure" class="tab-content-btn" id="status-departure">
                             <option value="">Departure</option>
-                            {% for city_name in lines %}
-                            <option value="{{ city_name }}">{{ city_name }}</option>
+                            {% for city in departure_cities %}
+                            <option value="{{ city }}">{{ city }}</option>
                             {% endfor %}
                         </select>
 
                         <input type="date" name="date" id="date" class="tab-content-btn">
                     </div>
-                    <button type="submit" class="submit" class="flight-tab-btn"
-                        id="home-submit" onclick="location.href='{% url 'flight_status' %}'"><span></span>SUBMIT</button>
+                    <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"
+                        onclick="location.href='{% url 'flight_status' %}'"><span></span>SUBMIT</button>
                 </div>
 
 
