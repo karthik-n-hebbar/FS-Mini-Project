@@ -13,3 +13,7 @@ tabs.forEach((tab, index) => {
 function submitForm() {
     document.getElementById("departure_city").form.submit();
 }
+
+function submitForm_a() {
+    document.getElementById("arrival_city").form.submit();  
+}

@@ -11,6 +11,37 @@ Flights
 
 {% block body %}
 
-<p>This page will show all the available flights</p>
+<table>
+    <thead>
+      <tr>
+        <th>Flight Number</th>
+        <th>Airline</th>
+        <th>Aircraft Type</th>
+        <th>Departure City</th>
+        <th>Departure Airport</th>
+        <th>Arrival City</th>
+        <th>Arrival Airport</th>
+        <th>Seat Capacity</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for flight in flights %}
+        <tr>
+          <td>{{ flight.flight_number }}</td>
+          <td>{{ flight.airline }}</td>
+          <td>{{ flight.aircraft_type }}</td>
+          <td>{{ flight.departure_city }}</td>
+          <td>{{ flight.departure_airport }}</td>
+          <td>{{ flight.arrival_city }}</td>
+          <td>{{ flight.arrival_airport }}</td>
+          <td>{{ flight.seat_capacity }}</td>
+          <td>{{ flight.departure_time }}</td>
+          <td>{{ flight.arrival_time }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>  
 
 {% endblock %}

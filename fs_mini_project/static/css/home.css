@@ -94,10 +94,12 @@
     display: flex;
     margin: 10px;
     padding: 5px;
-    justify-content: space-between;
+    justify-content:space-between;;
 }
 
-.flight-title, .my-bookings-title, .flight-status-title {
+.flight-title,
+.my-bookings-title,
+.flight-status-title {
     text-align: left;
     font-size: 20px;
     margin-left: 10px;
@@ -116,6 +118,7 @@
     padding: 5px;
     font-size: 15px;
     /* font-weight: bold; */
+    margin: 0 30px;
 }
 
 #date {
@@ -141,7 +144,7 @@
     overflow: hidden;
 }
 
-span{
+span {
     background: #009688;
     height: 100%;
     width: 0%;
