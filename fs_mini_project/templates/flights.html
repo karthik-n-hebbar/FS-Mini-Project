@@ -10,7 +10,7 @@ Flights
 {% endblock %}
 
 {% block body %}
-
+{% csrf_token %}
 <table>
     <thead>
       <tr>
@@ -28,7 +28,7 @@ Flights
     </thead>
     <tbody>
       {% for flight in flights %}
-        <tr>
+      <tr onclick="postToBooking('{{ flight.flight_number }}', '{{ flight.airline }}', '{{ flight.aircraft_type }}', '{{ flight.departure_city }}', '{{ flight.departure_airport }}', '{{ flight.arrival_city }}', '{{ flight.arrival_airport }}', '{{ flight.seat_capacity }}', '{{ flight.departure_time }}', '{{ flight.arrival_time }}')">
           <td>{{ flight.flight_number }}</td>
           <td>{{ flight.airline }}</td>
           <td>{{ flight.aircraft_type }}</td>
@@ -43,5 +43,46 @@ Flights
       {% endfor %}
     </tbody>
   </table>  
+
+<form id="bookingForm" method="post" action="{% url 'booking' %}">
+  {% csrf_token %}
+  <input type="hidden" id="flightNumberInput" name="flight_number">
+  <input type="hidden" id="airlineInput" name="airline">
+  <input type="hidden" id="aircraftTypeInput" name="aircraft_type">
+  <input type="hidden" id="departureCityInput" name="departure_city">
+  <input type="hidden" id="departureAirportInput" name="departure_airport">
+  <input type="hidden" id="arrivalCityInput" name="arrival_city">
+  <input type="hidden" id="arrivalAirportInput" name="arrival_airport">
+  <input type="hidden" id="seatCapacityInput" name="seat_capacity">
+  <input type="hidden" id="departureTimeInput" name="departure_time">
+  <input type="hidden" id="arrivalTimeInput" name="arrival_time">
+</form>
+
+<script>
+  function postToBooking(flightNumber) {
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = '{% url 'booking' %}';
+    form.style.display = 'none';
+    
+    const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;  // Get the CSRF token value
+    
+    const flightNumberField = document.createElement('input');
+    flightNumberField.name = 'flight_number';
+    flightNumberField.value = flightNumber;
+    form.appendChild(flightNumberField);
+
+    // Add other fields for the flight details
+
+    const csrfTokenField = document.createElement('input');
+    csrfTokenField.type = 'hidden';
+    csrfTokenField.name = 'csrfmiddlewaretoken';
+    csrfTokenField.value = csrfToken;
+    form.appendChild(csrfTokenField);
+    
+    document.body.appendChild(form);
+    form.submit();
+  }
+</script>
 
 {% endblock %}

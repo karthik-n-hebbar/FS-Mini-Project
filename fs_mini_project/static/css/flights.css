@@ -13,6 +13,7 @@ table {
 
 td {
     vertical-align:middle;
+    cursor: pointer;
 }
 
 th {
@@ -21,4 +22,8 @@ th {
 
 tr:hover{
     background-color: rgba(0, 0, 255, 0.300);
+}
+
+td {
+    cursor: pointer;
 }

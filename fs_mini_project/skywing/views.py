@@ -109,7 +109,54 @@ def about(request):
     return render(request, "about.html")
 
 def booking(request):
-    return render(request, "booking.html")
+    if request.method == 'POST':
+        posted_flight_number = request.POST.get('flight_number')
+
+        file_path = 'static/flights.txt'
+
+        with open(file_path, 'r') as file:
+            for line in file:
+                flight_details = line.split('|')
+                flight_number = flight_details[0].split(':')[1].strip()
+                airline = flight_details[1].split(':')[1].strip()
+                aircraft_type = flight_details[2].split(':')[1].strip()
+                departure_city = flight_details[3].split(':')[1].strip()
+                departure_airport = flight_details[4].split(':')[1].strip()
+                arrival_city = flight_details[5].split(':')[1].strip()
+                arrival_airport = flight_details[6].split(':')[1].strip()
+                seat_capacity = flight_details[7].split(':')[1].strip()
+                    
+                # Extract and format departure time
+                departure_time_match = re.search(r'Departure Time: (\d{2}:\d{2} [AP]M)', line)
+                if departure_time_match:
+                    departure_time = departure_time_match.group(1)
+                else:
+                    departure_time = ""
+                    
+                # Extract and format arrival time
+                arrival_time_match = re.search(r'Arrival Time: (\d{2}:\d{2} [AP]M)', line)
+                if arrival_time_match:
+                    arrival_time = arrival_time_match.group(1)
+                else:
+                    arrival_time = ""
+
+                if posted_flight_number == flight_number:
+                    context = {
+                        'flight_number': flight_number,
+                        'airline': airline,
+                        'aircraft_type': aircraft_type,
+                        'departure_city': departure_city,
+                        'departure_airport': departure_airport,
+                        'arrival_city': arrival_city,
+                        'arrival_airport': arrival_airport,
+                        'seat_capacity': seat_capacity,
+                        'departure_time': departure_time,
+                        'arrival_time': arrival_time,
+                    }
+
+            return render(request, 'booking.html', context)
+
+    return render(request, 'booking.html')
     
 def flights(request):
     return render(request, "flights.html")
