@@ -1,1 +1,2 @@
 AI606|Air India|Airbus A320|Bangalore|BLR|Chennai|MAA|12:00 PM|02:30 PM|Ronith|M|20|male|9538663563|ron99.rm@gmail.com
+AI303|Air India|Airbus A320|Mumbai|BOM|Bangalore|BLR|10:45 AM|01:30 PM|Karthik|N Hebbar|20|male|9480991190|karthiknh125@gmail.com
