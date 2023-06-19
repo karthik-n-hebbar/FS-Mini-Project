@@ -186,8 +186,6 @@ def process_booking(request):
         with open(file_path, 'a') as file:
             file.write(data_line + '\n')
 
-        print(data_line)
-
     return render(request, "booking_confirm.html")
     
 def flights(request):
