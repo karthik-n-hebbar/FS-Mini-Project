@@ -21,7 +21,7 @@ Flight Booking
    Reserve Your Seat to Explore <span><img src="{% static 'images/ticket-flight.png' %}" id="ticket-flight_logo" alt=""></span>
 </p>
 <div class="booking_container">
-   <form method="post" action="{% url 'booking' %}">
+   <form method="post" action="{% url 'process_booking' %}">
       {% csrf_token %}
       <p>Flight Details</p>
       <div>

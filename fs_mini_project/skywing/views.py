@@ -157,6 +157,38 @@ def booking(request):
             return render(request, 'booking.html', context)
 
     return render(request, 'booking.html')
+
+def process_booking(request):
+    if request.method == 'POST':
+        # Retrieve form data
+        flight_number = request.POST.get('flight_number')
+        airline = request.POST.get('airline')
+        aircraft_type = request.POST.get('aircraft_type')
+        departure_city = request.POST.get('departure_city')
+        departure_airport = request.POST.get('departure_airport')
+        arrival_city = request.POST.get('arrival_city')
+        arrival_airport = request.POST.get('arrival_airport')
+        departure_time = request.POST.get('departure_time')
+        arrival_time = request.POST.get('arrival_time')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        age = request.POST.get('age')
+        gender = request.POST.get('gender')
+        mobile = request.POST.get('mobile')
+        email = request.POST.get('email')
+
+        # Combine data with delimiter
+        data_line = f'{flight_number}|{airline}|{aircraft_type}|{departure_city}|{departure_airport}|{arrival_city}|{arrival_airport}|{departure_time}|{arrival_time}|{first_name}|{last_name}|{age}|{gender}|{mobile}|{email}'
+
+        file_path = 'static/booking.txt'
+
+        # Write data to file
+        with open(file_path, 'a') as file:
+            file.write(data_line + '\n')
+
+        print(data_line)
+
+    return render(request, "booking_confirm.html")
     
 def flights(request):
     return render(request, "flights.html")
