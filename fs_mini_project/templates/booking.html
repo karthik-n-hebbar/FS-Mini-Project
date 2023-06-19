@@ -5,42 +5,93 @@
 Flight Booking
 {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/booking.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
 
-<h2>Booking Details</h2>
-<form method="post" action="{% url 'booking' %}">
-   {% csrf_token %}
-  <label for="flight_number">Flight Number:</label>
-  <input type="text" name="flight_number" id="flight_number" value="{{ flight_number }}" readonly><br>
-  
-  <label for="airline">Airline:</label>
-  <input type="text" name="airline" id="airline" value="{{ airline }}" readonly><br>
-  
-  <label for="aircraft_type">Aircraft Type:</label>
-  <input type="text" name="aircraft_type" id="aircraft_type" value="{{ aircraft_type }}" readonly><br>
-  
-  <label for="departure_city">Departure City:</label>
-  <input type="text" name="departure_city" id="departure_city" value="{{ departure_city }}" readonly><br>
-  
-  <label for="departure_airport">Departure Airport:</label>
-  <input type="text" name="departure_airport" id="departure_airport" value="{{ departure_airport }}" readonly><br>
-  
-  <label for="arrival_city">Arrival City:</label>
-  <input type="text" name="arrival_city" id="arrival_city" value="{{ arrival_city }}" readonly><br>
-  
-  <label for="arrival_airport">Arrival Airport:</label>
-  <input type="text" name="arrival_airport" id="arrival_airport" value="{{ arrival_airport }}" readonly><br>
-  
-  <label for="seat_capacity">Seat Capacity:</label>
-  <input type="text" name="seat_capacity" id="seat_capacity" value="{{ seat_capacity }}" readonly><br>
-  
-  <label for="departure_time">Departure Time:</label>
-  <input type="text" name="departure_time" id="departure_time" value="{{ departure_time }}" readonly><br>
-  
-  <label for="arrival_time">Arrival Time:</label>
-  <input type="text" name="arrival_time" id="arrival_time" value="{{ arrival_time }}" readonly><br>
-  
-  <button type="submit">Confirm Booking</button>
-</form>
+<p id="booking-title"><span><img src="{% static 'images/ticket-flight.png' %}" id="ticket-flight_logo" alt=""></span> Fly High:
+   Reserve Your Seat to Explore <span><img src="{% static 'images/ticket-flight.png' %}" id="ticket-flight_logo" alt=""></span>
+</p>
+<div class="booking_container">
+   <form method="post" action="{% url 'booking' %}">
+      {% csrf_token %}
+      <p>Flight Details</p>
+      <div>
+         <label for="flight_number">Flight Number:</label>
+         <input type="text" name="flight_number" id="flight_number" value="{{ flight_number }}" readonly>
+      </div>
+      <div>
+         <label for="airline">Airline:</label>
+         <input type="text" name="airline" id="airline" value="{{ airline }}" readonly>
+      </div>
+      <div>
+         <label for="aircraft_type">Aircraft Type:</label>
+         <input type="text" name="aircraft_type" id="aircraft_type" value="{{ aircraft_type }}" readonly>
+      </div>
+      <div>
+         <label for="departure_city">Departure City:</label>
+         <input type="text" name="departure_city" id="departure_city" value="{{ departure_city }}" readonly>
+      </div>
+      <div>
+         <label for="departure_airport">Departure Airport:</label>
+         <input type="text" name="departure_airport" id="departure_airport" value="{{ departure_airport }}"
+            readonly>
+      </div>
+      <div>
+         <label for="arrival_city">Arrival City:</label>
+         <input type="text" name="arrival_city" id="arrival_city" value="{{ arrival_city }}" readonly>
+      </div>
+      <div>
+         <label for="arrival_airport">Arrival Airport:</label>
+         <input type="text" name="arrival_airport" id="arrival_airport" value="{{ arrival_airport }}" readonly>
+      </div>
+      <div>
+         <label for="departure_time">Departure Time:</label>
+         <input type="text" name="departure_time" id="departure_time" value="{{ departure_time }}" readonly>
+      </div>
+      <div>
+         <label for="arrival_time">Arrival Time:</label>
+         <input type="text" name="arrival_time" id="arrival_time" value="{{ arrival_time }}" readonly>
+      </div>
+      <hr>
+      <p>Traveller Details</p>
+      <div>
+         <input type="text" name="first_name" id="first_name" placeholder="First Name">
+      </div>
+      <div>
+         <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+      </div>
+      <div>
+         <input type="text" name="age" id="age" placeholder="Age">
+      </div>
+      <div>
+         <div id="gender">
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+         </div>
+      </div>
+      <hr>
+      <p>Contact Details</p>
+      <div>
+         <input type="number" name="mobile" id="mobile" placeholder="Mobile No">
+      </div>
+      <div>
+         <input type="text" name="email" id="email" placeholder="Email">
+      </div>
+
+      <br>
+      <div id="submit_div">
+         <button type="submit" id="booking_submit">Confirm Booking</button>
+      </div>
+   </form>
+</div>
 
 {% endblock %}

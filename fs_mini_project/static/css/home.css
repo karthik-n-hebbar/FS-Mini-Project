@@ -24,7 +24,7 @@
     border-radius: 15px;
     margin-top: 180px;
     margin-left: 30px;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.500);
     box-sizing: content-box;
 }
 
@@ -144,7 +144,12 @@
     overflow: hidden;
 }
 
-span {
+#home-submit:hover {
+    background-color: #00968765;
+}
+
+
+/* span {
     background: #009688;
     height: 100%;
     width: 0%;
@@ -154,11 +159,10 @@ span {
     bottom: 0;
     z-index: -1;
     transition: 0.25s;
-}
+} */
 
-#home-submit:hover {
-    background-color: #00968765;
-}
+
+
 
 /* #home-submit:hover span {
     width: 100%;
