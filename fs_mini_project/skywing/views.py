@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import csv
 import re
+import random
 
 # Create your views here.
 
@@ -140,6 +141,8 @@ def booking(request):
                 else:
                     arrival_time = ""
 
+                pnr_number = generate_pnr()
+
                 if posted_flight_number == flight_number:
                     context = {
                         'flight_number': flight_number,
@@ -152,11 +155,18 @@ def booking(request):
                         'seat_capacity': seat_capacity,
                         'departure_time': departure_time,
                         'arrival_time': arrival_time,
+                        'pnr_number': pnr_number,
                     }
 
             return render(request, 'booking.html', context)
 
     return render(request, 'booking.html')
+
+
+def generate_pnr():
+    # Generate a random 10-digit number
+    pnr = ''.join(random.choices('0123456789', k=10))
+    return pnr
 
 def process_booking(request):
     if request.method == 'POST':
@@ -170,6 +180,7 @@ def process_booking(request):
         arrival_airport = request.POST.get('arrival_airport')
         departure_time = request.POST.get('departure_time')
         arrival_time = request.POST.get('arrival_time')
+        pnr_number = request.POST.get('pnr_number')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         age = request.POST.get('age')
@@ -178,7 +189,7 @@ def process_booking(request):
         email = request.POST.get('email')
 
         # Combine data with delimiter
-        data_line = f'{flight_number}|{airline}|{aircraft_type}|{departure_city}|{departure_airport}|{arrival_city}|{arrival_airport}|{departure_time}|{arrival_time}|{first_name}|{last_name}|{age}|{gender}|{mobile}|{email}'
+        data_line = f'{flight_number}|{airline}|{aircraft_type}|{departure_city}|{departure_airport}|{arrival_city}|{arrival_airport}|{departure_time}|{arrival_time}|{pnr_number}|{first_name}|{last_name}|{age}|{gender}|{mobile}|{email}'
 
         file_path = 'static/booking.txt'
 
