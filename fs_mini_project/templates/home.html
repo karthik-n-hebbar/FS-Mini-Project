@@ -72,14 +72,16 @@ SkyWing
                     <div class="my-bookings-title">
                         <p>My Bookings</p>
                     </div>
-                    <div id="my-bookings-tab">
-                        <input type="text" name="ticket_number" id="ticket_number" class="tab-content-btn" ,
-                            placeholder="Ticket Number">
-                        <input type="text" name="passenger_first_name" id="passenger_first_name" class="tab-content-btn"
-                            , placeholder="Passenger First Name">
-                    </div>
-                    <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"
-                        onclick="location.href='{% url 'my_bookings' %}'"><span></span>SUBMIT</button>
+                    <form action="{% url 'my_booking' %}" method="post">
+                        {% csrf_token %}
+                        <div id="my-bookings-tab">
+                            <input type="text" name="pnr_number" id="pnr_number" class="tab-content-btn" ,
+                                placeholder="PNR Number">
+                            <input type="text" name="passenger_first_name" id="passenger_first_name"
+                                class="tab-content-btn" , placeholder="Passenger First Name">
+                        </div>
+                        <input type="submit" value="Search My Flights" class="submit" id="home-submit">
+                    </form>
                 </div>
 
 
@@ -87,24 +89,25 @@ SkyWing
                     <div class="flight-status-title">
                         <p>Flight Status</p>
                     </div>
-                    <div id="flight-stauts-tab">
-                        <input type="text" name="flight_number" id="flight_number" class="tab-content-btn" ,
-                            placeholder="Flight Number">
+                    <form action="{% url 'flight_status' %}" method="post">
+                        {% csrf_token %}
+                        <div id="flight-stauts-tab">
+                            <input type="text" name="flight_number" id="flight_number" class="tab-content-btn" ,
+                                placeholder="Flight Number">
 
-                        <select name="departure" class="tab-content-btn" id="status-departure">
-                            <option value="">Departure</option>
-                            {% for city in departure_cities %}
-                            <option value="{{ city }}">{{ city }}</option>
-                            {% endfor %}
-                        </select>
+                            <select name="departure" class="tab-content-btn" id="status-departure">
+                                <option value="">Departure</option>
+                                {% for city in departure_cities %}
+                                <option value="{{ city }}">{{ city }}</option>
+                                {% endfor %}
+                            </select>
 
-                        <input type="date" name="date" id="date" class="tab-content-btn">
-                    </div>
-                    <button type="submit" class="submit" class="flight-tab-btn" id="home-submit"
-                        onclick="location.href='{% url 'flight_status' %}'"><span></span>SUBMIT</button>
+                            <input type="date" name="date" id="date" class="tab-content-btn">
+
+                        </div>
+                        <input type="submit" value="SUBMIT" class="submit" class="flight-tab-btn" id="home-submit">
+                    </form>
                 </div>
-
-
             </div>
         </div>
     </div>

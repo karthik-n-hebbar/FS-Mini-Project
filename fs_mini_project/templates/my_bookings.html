@@ -7,10 +7,89 @@ My Bookings
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/my_bookings.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind&family=Lato:wght@900&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
 
-<p>This page will show the flights booked by the user</p>
+{% if context %}
 
+<center><p class="title-my-bookings">Happy Journey...</p></center>
+<div class="my-booking-container">
+    <div>
+        <label for="flight_number">Flight Number:</label>
+        <input type="text" name="flight_number" id="flight_number" value="{{ flight_number }}" readonly>
+    </div>
+    <div>
+        <label for="airline">Airline:</label>
+        <input type="text" name="airline" id="airline" value="{{ airline }}" readonly>
+    </div>
+    <div>
+        <label for="aircraft_type">Aircraft Type:</label>
+        <input type="text" name="aircraft_type" id="aircraft_type" value="{{ aircraft_type }}" readonly>
+    </div>
+    <div>
+        <label for="departure_city">Departure City:</label>
+        <input type="text" name="departure_city" id="departure_city" value="{{ departure_city }}" readonly>
+    </div>
+    <div>
+        <label for="departure_airport">Departure Airport:</label>
+        <input type="text" name="departure_airport" id="departure_airport" value="{{ departure_airport }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_city">Arrival City:</label>
+        <input type="text" name="arrival_city" id="arrival_city" value="{{ arrival_city }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_airport">Arrival Airport:</label>
+        <input type="text" name="arrival_airport" id="arrival_airport" value="{{ arrival_airport }}" readonly>
+    </div>
+    <div>
+        <label for="departure_time">Departure Time:</label>
+        <input type="text" name="departure_time" id="departure_time" value="{{ departure_time }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_time">Arrival Time:</label>
+        <input type="text" name="arrival_time" id="arrival_time" value="{{ arrival_time }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_time">PNR Number:</label>
+        <input type="text" name="pnr_number" id="pnr_number" value="{{ pnr_number }}" readonly>
+    </div>
+    <hr>
+    <div>
+        <label for="arrival_time">First Name:</label>
+        <input type="text" name="first_name" id="first_name" value="{{ first_name }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_time">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" value="{{ last_name }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_time">Age:</label>
+        <input type="text" name="age" id="age" value="{{ age }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_time">Gender:</label>
+        <input type="text" name="gender" id="gender" value="{{ gender }}" readonly>
+    </div>
+    <hr>
+    <div>
+        <label for="arrival_time">Mobile No:</label>
+        <input type="text" name="mobile" id="mobile" value="{{ mobile }}" readonly>
+    </div>
+    <div>
+        <label for="arrival_time">Email:</label>
+        <input type="text" name="email" id="email" value="{{ email }}" readonly>
+    </div>
+</div>
+
+{% else %}
+<div id="no_booking">
+    <p><span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span>No Booking Found<span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span></p>
+  </div> 
+
+{% endif %}
 {% endblock %}

@@ -7,42 +7,55 @@ Flights
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/flights.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
 {% csrf_token %}
+
+{% if flights %}
+
 <table>
-    <thead>
-      <tr>
-        <th>Flight Number</th>
-        <th>Airline</th>
-        <th>Aircraft Type</th>
-        <th>Departure City</th>
-        <th>Departure Airport</th>
-        <th>Arrival City</th>
-        <th>Arrival Airport</th>
-        <th>Seat Capacity</th>
-        <th>Departure Time</th>
-        <th>Arrival Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for flight in flights %}
-      <tr onclick="postToBooking('{{ flight.flight_number }}', '{{ flight.airline }}', '{{ flight.aircraft_type }}', '{{ flight.departure_city }}', '{{ flight.departure_airport }}', '{{ flight.arrival_city }}', '{{ flight.arrival_airport }}', '{{ flight.seat_capacity }}', '{{ flight.departure_time }}', '{{ flight.arrival_time }}')">
-          <td>{{ flight.flight_number }}</td>
-          <td>{{ flight.airline }}</td>
-          <td>{{ flight.aircraft_type }}</td>
-          <td>{{ flight.departure_city }}</td>
-          <td>{{ flight.departure_airport }}</td>
-          <td>{{ flight.arrival_city }}</td>
-          <td>{{ flight.arrival_airport }}</td>
-          <td>{{ flight.seat_capacity }}</td>
-          <td>{{ flight.departure_time }}</td>
-          <td>{{ flight.arrival_time }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>  
+  <thead>
+    <tr>
+      <th>Flight Number</th>
+      <th>Airline</th>
+      <th>Aircraft Type</th>
+      <th>Departure City</th>
+      <th>Departure Airport</th>
+      <th>Arrival City</th>
+      <th>Arrival Airport</th>
+      <th>Seat Capacity</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for flight in flights %}
+    <tr
+      onclick="postToBooking('{{ flight.flight_number }}', '{{ flight.airline }}', '{{ flight.aircraft_type }}', '{{ flight.departure_city }}', '{{ flight.departure_airport }}', '{{ flight.arrival_city }}', '{{ flight.arrival_airport }}', '{{ flight.seat_capacity }}', '{{ flight.departure_time }}', '{{ flight.arrival_time }}')">
+      <td>{{ flight.flight_number }}</td>
+      <td>{{ flight.airline }}</td>
+      <td>{{ flight.aircraft_type }}</td>
+      <td>{{ flight.departure_city }}</td>
+      <td>{{ flight.departure_airport }}</td>
+      <td>{{ flight.arrival_city }}</td>
+      <td>{{ flight.arrival_airport }}</td>
+      <td>{{ flight.seat_capacity }}</td>
+      <td>{{ flight.departure_time }}</td>
+      <td>{{ flight.arrival_time }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<div id="no_flights">
+  <p><span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span>No Flights Between The Selected Route<span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span></p>
+</div> 
+{% endif %}
 
 <form id="bookingForm" method="post" action="{% url 'booking' %}">
   {% csrf_token %}
@@ -64,9 +77,9 @@ Flights
     form.method = 'post';
     form.action = '{% url 'booking' %}';
     form.style.display = 'none';
-    
+
     const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;  // Get the CSRF token value
-    
+
     const flightNumberField = document.createElement('input');
     flightNumberField.name = 'flight_number';
     flightNumberField.value = flightNumber;
@@ -79,7 +92,7 @@ Flights
     csrfTokenField.name = 'csrfmiddlewaretoken';
     csrfTokenField.value = csrfToken;
     form.appendChild(csrfTokenField);
-    
+
     document.body.appendChild(form);
     form.submit();
   }

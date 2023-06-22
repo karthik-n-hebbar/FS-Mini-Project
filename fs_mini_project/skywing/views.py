@@ -9,6 +9,7 @@ import random
 selected_departure_city = ""
 selected_arrival_city = ""
 context = {}
+ticket_details = {}
 
 def home(request):
     file_path = 'static/flights.txt'
@@ -162,6 +163,54 @@ def booking(request):
 
     return render(request, 'booking.html')
 
+def my_booking(request):
+    if request.method == 'POST':
+        posted_pnr_number = request.POST.get('pnr_number')
+
+        file_path = 'static/booking.txt'
+
+        with open(file_path, 'r') as file:
+            for line in file:
+                booking_details = line.split('|')
+                flight_number = booking_details[0].strip()
+                airline = booking_details[1].strip()
+                aircraft_type = booking_details[2].strip()
+                departure_city = booking_details[3].strip()
+                departure_airport = booking_details[4].strip()
+                arrival_city = booking_details[5].strip()
+                arrival_airport = booking_details[6].strip()
+                departure_time = booking_details[7].strip()
+                arrival_time = booking_details[8].strip()
+                pnr_number = booking_details[9].strip()
+                first_name = booking_details[10].strip()
+                last_name = booking_details[11].strip()
+                age = booking_details[12].strip()
+                gender = booking_details[13].strip()
+                mobile = booking_details[14].strip()
+                email = booking_details[15].strip()
+
+                if posted_pnr_number == pnr_number:
+                    context = {
+                        'flight_number': flight_number,
+                        'airline': airline,
+                        'aircraft_type': aircraft_type,
+                        'departure_city': departure_city,
+                        'departure_airport': departure_airport,
+                        'arrival_city': arrival_city,
+                        'arrival_airport': arrival_airport,
+                        'departure_time': departure_time,
+                        'arrival_time': arrival_time,
+                        'pnr_number': pnr_number,
+                        'first_name' : first_name,
+                        'last_name' : last_name,
+                        'age' : age,
+                        'gender' : gender,
+                        'mobile' : mobile,
+                        'email' : email
+                    }
+                    return render(request, 'my_bookings.html', context)
+                return render(request, 'my_bookings.html')
+
 
 def generate_pnr():
     # Generate a random 10-digit number
@@ -201,9 +250,6 @@ def process_booking(request):
     
 def flights(request):
     return render(request, "flights.html")
-
-def my_bookings(request):
-    return render(request, "my_bookings.html")
 
 def flight_status(request):
     return render(request, "flight_status.html")

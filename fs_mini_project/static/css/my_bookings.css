@@ -1,0 +1,64 @@
+.my-booking-container {
+    background-color: rgba(0, 255, 255, 0.4);
+    border-radius: 15px;
+    width: 80%;
+    height: 350px;
+    padding: 20px;
+    margin-left: 10%;
+    margin-top: 90px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.my-booking-container div {
+    display: inline-block;
+    margin: 10px;
+    align-items: center;
+}
+
+.my-booking-container div input {
+    display: block; 
+    margin: 2.5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+input, label {
+    font-size: 13.5px;
+    /* color: #884A39; */
+    color: #090580;
+    font-family: 'Lato', sans-serif;
+}
+
+input {
+    color: black;
+    font-weight: 300;
+}
+
+hr {
+    height: 1px;
+    background-color: #0E2954;
+}
+
+p {
+    margin: 5px;
+    font-family: 'Noto Serif', serif;
+    color: #090580;
+}
+
+#no_booking {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 200px;
+    height: 100px;
+    width: 100%;
+    font-family: 'Lobster', cursive;
+}
+
+#warning_logo {
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
+}
