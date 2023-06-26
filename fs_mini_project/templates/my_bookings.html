@@ -14,9 +14,9 @@ My Bookings
 
 {% block body %}
 
-{% if context %}
-
-<center><p class="title-my-bookings">Happy Journey...</p></center>
+<center>
+    <p class="title-my-bookings">Happy Journey...</p>
+</center>
 <div class="my-booking-container">
     <div>
         <label for="flight_number">Flight Number:</label>
@@ -85,11 +85,10 @@ My Bookings
         <input type="text" name="email" id="email" value="{{ email }}" readonly>
     </div>
 </div>
+<!-- <form method="post" action="{% url 'delete_booking' %}" id="delete_form">
+    {% csrf_token %}
+    <input type="hidden" name="pnr" value="{{ pnr_number }}">
+    <button type="submit">Delete Booking</button>
+</form> -->
 
-{% else %}
-<div id="no_booking">
-    <p><span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span>No Booking Found<span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span></p>
-  </div> 
-
-{% endif %}
 {% endblock %}

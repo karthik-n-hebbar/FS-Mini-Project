@@ -11,5 +11,6 @@ urlpatterns = [
     path('flights', views.flights, name='flights'),
     path('process_booking', views.process_booking, name="process_booking"),
     path('my_booking', views.my_booking, name='my_booking'),
-    path('flight_status', views.flight_status, name='flight_status')
+    path('flight_status', views.flight_status, name='flight_status'),
+    path('delete_booking', views.delete_booking, name='delete_booking')
 ]

@@ -1,1 +1,2 @@
-6E2727|IndiGo|Airbus A320|Mumbai|BOM|Jaipur|JAI|11:45 AM|02:15 PM|9820864657|Karthik|N H|20|male|9480991190|karthiknh125@gmail.com
+AI101|Air India|Boeing 747|Mumbai|BOM|Delhi|DEL|09:00 AM|11:30 AM|3854316117|Shreyas|M|20|male|8642152431|shreyas@gmail.com
+9W3737|Jet Airways|Boeing 777|Mumbai|BOM|Hyderabad|HYD|07:15 PM|09:30 PM|3220484672|Shravan|Karthik|21|male|9723401564|shravan@gmail.com

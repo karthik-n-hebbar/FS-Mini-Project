@@ -32,39 +32,34 @@ SkyWing
             <div class="button-container">
                 <button class="tab-btn active">Flights</button>
                 <button class="tab-btn">My Bookings</button>
-                <button class="tab-btn">Flight Status</button>
+                <!-- <button class="tab-btn">Flight Status</button> -->
             </div>
             <div class="tab-content">
                 <div id="flight" class="content-page active">
                     <div class="flight-title">
                         <p>Flights</p>
                     </div>
-                    <div id="flight-tab">
-                        <form action="{% url 'search_flights' %}" method="post">
-                            {% csrf_token %}
-                            <select name="departure_city" id="departure_city" class="tab-content-btn">
+                    <form action="{% url 'search_flights' %}" method="post">
+                        {% csrf_token %}
+                        <div id="flight-tab">
+                            <select name="departure_city" id="departure_city" class="tab-content-btn" required>
                                 <option value="">Departure</option>
                                 {% for city in departure_cities %}
                                 <option value="{{ city }}">{{ city }}</option>
                                 {% endfor %}
                             </select>
 
-                            <select name="arrival_city" id="arrival_city" class="tab-content-btn">
+                            <select name="arrival_city" id="arrival_city" class="tab-content-btn" required>
                                 <option value="">Arrival</option>
                                 {% for city in arrival_cities %}
                                 <option value="{{ city }}">{{ city }}</option>
                                 {% endfor %}
                             </select>
+                        </div>
 
-
-                            <input type="date" class="tab-content-btn" id="date">
-
-                            <input type="text" name="no_of_passengers" class="tab-content-btn" id="no_of_passengers"
-                                placeholder="Number Of Passengers">
-
-                            <input type="submit" value="Search Flights" class="submit" id="home-submit">
-                        </form>
-                    </div>
+                        <input type="submit" value="Search Flights" class="tab-content-btn" class="submit"
+                            id="home-submit">
+                    </form>
                 </div>
 
 
@@ -76,7 +71,7 @@ SkyWing
                         {% csrf_token %}
                         <div id="my-bookings-tab">
                             <input type="text" name="pnr_number" id="pnr_number" class="tab-content-btn" ,
-                                placeholder="PNR Number">
+                                placeholder="PNR Number" required>
                             <input type="text" name="passenger_first_name" id="passenger_first_name"
                                 class="tab-content-btn" , placeholder="Passenger First Name">
                         </div>
@@ -85,7 +80,7 @@ SkyWing
                 </div>
 
 
-                <div id="flight-status" class="content-page">
+                <!-- <div id="flight-status" class="content-page">
                     <div class="flight-status-title">
                         <p>Flight Status</p>
                     </div>
@@ -107,7 +102,7 @@ SkyWing
                         </div>
                         <input type="submit" value="SUBMIT" class="submit" class="flight-tab-btn" id="home-submit">
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

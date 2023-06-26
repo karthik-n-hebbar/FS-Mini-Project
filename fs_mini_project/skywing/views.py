@@ -1,15 +1,16 @@
+import os
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import csv
 import re
 import random
+import fileinput
 
 # Create your views here.
 
 selected_departure_city = ""
 selected_arrival_city = ""
 context = {}
-ticket_details = {}
 
 def home(request):
     file_path = 'static/flights.txt'
@@ -165,9 +166,10 @@ def booking(request):
 
 def my_booking(request):
     if request.method == 'POST':
-        posted_pnr_number = request.POST.get('pnr_number')
-
+        posted_pnr_number = request.POST.get('pnr_number') # Get the PNR number from the POST data
+        
         file_path = 'static/booking.txt'
+        context = {}
 
         with open(file_path, 'r') as file:
             for line in file:
@@ -208,13 +210,18 @@ def my_booking(request):
                         'mobile' : mobile,
                         'email' : email
                     }
+                    print(context)
                     return render(request, 'my_bookings.html', context)
-                return render(request, 'my_bookings.html')
+                else:
+                    return HttpResponse("No Booking Found")
 
-
+               
 def generate_pnr():
-    # Generate a random 10-digit number
-    pnr = ''.join(random.choices('0123456789', k=10))
+    # Generate a random 10-digit number excluding numbers starting with 0, 9, 8, or 7
+    while True:
+        pnr = ''.join(random.choices('123456', k=1)) + ''.join(random.choices('0123456789', k=9))
+        if pnr[0] not in ['0', '9', '8', '7']:
+            break
     return pnr
 
 def process_booking(request):
@@ -247,6 +254,30 @@ def process_booking(request):
             file.write(data_line + '\n')
 
     return render(request, "booking_confirm.html")
+
+def delete_booking(request):
+    if request.method == 'POST':
+        pnr_to_delete = request.POST.get('pnr_number')
+
+        file_path = 'static/booking.txt'
+
+        with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
+            # Iterate over the lines in the file
+            for line in file:
+                # Split the line into fields using the '|' delimiter
+                fields = line.strip().split('|')
+
+                # Check if the PNR number in the line matches the pnr_to_delete
+                if fields[9] != pnr_to_delete:
+                    # If the PNR number does not match, print the line to keep it in the file
+                    print(line, end='')
+                print(fields[9])
+        # Remove the backup file
+        os.remove(file_path + '.bak')
+
+        # Return a response or redirect to another page
+        return HttpResponse('Booking deleted successfully')
+
     
 def flights(request):
     return render(request, "flights.html")
