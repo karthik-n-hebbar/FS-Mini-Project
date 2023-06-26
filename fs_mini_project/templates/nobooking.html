@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Booking Not Found
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/nobooking.css' %}">
+{% endblock %}
+
+{% block body %}
+<div id="no_booking">
+    <p><span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span>No Booking Found<span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span></p>
+  </div> 
+{% endblock %}

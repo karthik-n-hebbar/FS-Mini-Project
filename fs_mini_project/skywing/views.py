@@ -213,7 +213,7 @@ def my_booking(request):
                     print(context)
                     return render(request, 'my_bookings.html', context)
                 else:
-                    return HttpResponse("No Booking Found")
+                    return render(request, 'nobooking.html')
 
                
 def generate_pnr():
