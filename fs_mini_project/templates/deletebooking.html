@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Delete Successful
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/deletebooking.css' %}">
+{% endblock %}
+
+{% block body %}
+<div id="delete_booking">
+    <p><span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span>Delete Successfull<span><img src="{% static 'images/warning.png' %}" alt="" id="warning_logo"></span></p>
+  </div> 
+{% endblock %}

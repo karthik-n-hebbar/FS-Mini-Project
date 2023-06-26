@@ -294,4 +294,4 @@ def delete_booking(request):
 
         
         # Return a response or redirect to another page
-        return HttpResponse('Booking deleted successfully')
+        return render(request, 'deletebooking.html')
