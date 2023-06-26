@@ -1,3 +1,3 @@
 AI101|Air India|Boeing 747|Mumbai|BOM|Delhi|DEL|09:00 AM|11:30 AM|3854316117|Shreyas|M|20|male|8642152431|shreyas@gmail.com
 9W3737|Jet Airways|Boeing 777|Mumbai|BOM|Hyderabad|HYD|07:15 PM|09:30 PM|3220484672|Shravan|Karthik|21|male|9723401564|shravan@gmail.com
-6E2323|IndiGo|Airbus A320|Mumbai|BOM|Coimbatore|CJB|02:45 PM|05:15 PM|5369944064|Karthik|N H|21|male|9480991190|karthik@gmail.com
+AI606|Air India|Airbus A320|Bangalore|BLR|Chennai|MAA|12:00 PM|02:30 PM|5721658915|Karthik|H|19|male|9876543210|karthiknh@gmail.com

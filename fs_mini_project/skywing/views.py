@@ -267,33 +267,31 @@ def process_booking(request):
             file.write(data_line + '\n')
 
     return render(request, "booking_confirm.html")
-
-def delete_booking(request):
-    if request.method == 'POST':
-        pnr_to_delete = request.POST.get('pnr_number')
-
-        file_path = 'static/booking.txt'
-
-        with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
-            # Iterate over the lines in the file
-            for line in file:
-                # Split the line into fields using the '|' delimiter
-                fields = line.strip().split('|')
-
-                # Check if the PNR number in the line matches the pnr_to_delete
-                if fields[9] != pnr_to_delete:
-                    # If the PNR number does not match, print the line to keep it in the file
-                    print(line, end='')
-                print(fields[9])
-        # Remove the backup file
-        os.remove(file_path + '.bak')
-
-        # Return a response or redirect to another page
-        return HttpResponse('Booking deleted successfully')
-
     
 def flights(request):
     return render(request, "flights.html")
 
 def flight_status(request):
     return render(request, "flight_status.html")
+
+def delete_booking(request):
+    if request.method == 'POST':
+        posted_pnr_number = request.POST.get('pnr')
+        
+        file_path = 'static/booking.txt'
+        updated_lines = []
+
+        with open(file_path, 'r') as file:
+            for line in file:
+                booking_details = line.split('|')
+                pnr_number = booking_details[9].strip()
+
+                if posted_pnr_number != pnr_number:
+                    updated_lines.append(line)
+
+        with open(file_path, 'w') as file:
+            file.writelines(updated_lines)
+
+        
+        # Return a response or redirect to another page
+        return HttpResponse('Booking deleted successfully')

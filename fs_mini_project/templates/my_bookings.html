@@ -85,10 +85,10 @@ My Bookings
         <input type="text" name="email" id="email" value="{{ email }}" readonly>
     </div>
 </div>
-<!-- <form method="post" action="{% url 'delete_booking' %}" id="delete_form">
+<form method="post" action="{% url 'delete_booking' %}" id="delete_form">
     {% csrf_token %}
     <input type="hidden" name="pnr" value="{{ pnr_number }}">
     <button type="submit">Delete Booking</button>
-</form> -->
+</form>
 
 {% endblock %}
