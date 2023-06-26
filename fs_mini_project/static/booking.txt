@@ -1,1 +1,10 @@
 AI101|Air India|Boeing 747|Mumbai|BOM|Delhi|DEL|09:00 AM|11:30 AM|3854316117|Shreyas|M|20|male|8642152431|shreyas@gmail.com
+AI606|Air India|Airbus A320|Bangalore|BLR|Chennai|MAA|12:00 PM|02:30 PM|4497775608|Ronith|M|21|male|9871234560|ron99.rm@gmail.com
+SG2424|SpiceJet|Boeing 737|Mumbai|BOM|Goa|GOI|05:00 PM|06:45 PM|3547290614|Shravan|Karthik|22|male|8744120134|shravan@gmail.com
+AI4242|Air India|Airbus A320|Mumbai|BOM|Kochi|COK|08:00 AM|10:30 AM|6350707644|Rakshith|Srinivasan |22|male|7542162301|rakshith@gmail.com
+AI3838|Air India|Airbus A320|Mumbai|BOM|Chennai|MAA|08:30 AM|11:00 AM|2774129828|Chandana|R|20|female|8641245697|chandana@gmail.com
+9W5757|Jet Airways|Boeing 777|Kolkata|CCU|Mumbai|BOM|04:45 PM|07:15 PM|5501278536|Shreya|Prasad|21|female|8546120123|shreya@gmail.com
+SG808|SpiceJet|Boeing 737|Mumbai|BOM|Goa|GOI|07:30 AM|09:15 AM|1915468076|Sujan|Gowda|21|male|7548123601|sujan@gmail.com
+SG5656|SpiceJet|Boeing 737|Kolkata|CCU|Goa|GOI|01:30 PM|03:15 PM|4751728275|Kavitha|Ignorekar|21|female|6945123669|Kavitha@gmail.com
+9W5353|Jet Airways|Boeing 777|Kolkata|CCU|Hyderabad|HYD|03:45 PM|06:00 PM|2319457430|Prajanya|Acharya|21|female|8746912364|prajanya@gmail.com
+AI101|Air India|Boeing 747|Mumbai|BOM|Delhi|DEL|09:00 AM|11:30 AM|5878692175|Karthik|N H|20|male|9480991190|karthik@gmail.com
