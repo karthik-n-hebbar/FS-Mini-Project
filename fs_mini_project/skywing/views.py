@@ -54,7 +54,7 @@ def search_flights(request):
         # departure_city = 'Bangalore'
         # arrival_city = 'Chennai'
 
-        print(selected_departure_city, selected_arrival_city)
+        # print(selected_departure_city, selected_arrival_city)
         
         # Read flights.txt file and filter flights based on departure and arrival cities
         flights = []
@@ -114,7 +114,7 @@ def about(request):
 def booking(request):
     if request.method == 'POST':
         posted_flight_number = request.POST.get('flight_number')
-
+        
         file_path = 'static/flights.txt'
 
         with open(file_path, 'r') as file:
@@ -166,54 +166,67 @@ def booking(request):
 
 def my_booking(request):
     if request.method == 'POST':
-        posted_pnr_number = request.POST.get('pnr_number') # Get the PNR number from the POST data
-        
+        posted_pnr_number = request.POST.get('pnr_number')  # Get the PNR number from the POST data
+        posted_first_name = request.POST.get('passenger_first_name')  # Get the first name from the POST data
+
         file_path = 'static/booking.txt'
         context = {}
+        found = False
 
         with open(file_path, 'r') as file:
             for line in file:
-                booking_details = line.split('|')
-                flight_number = booking_details[0].strip()
-                airline = booking_details[1].strip()
-                aircraft_type = booking_details[2].strip()
-                departure_city = booking_details[3].strip()
-                departure_airport = booking_details[4].strip()
-                arrival_city = booking_details[5].strip()
-                arrival_airport = booking_details[6].strip()
-                departure_time = booking_details[7].strip()
-                arrival_time = booking_details[8].strip()
+                booking_details = line.strip().split('|')
                 pnr_number = booking_details[9].strip()
                 first_name = booking_details[10].strip()
-                last_name = booking_details[11].strip()
-                age = booking_details[12].strip()
-                gender = booking_details[13].strip()
-                mobile = booking_details[14].strip()
-                email = booking_details[15].strip()
 
                 if posted_pnr_number == pnr_number:
+                    found = True
                     context = {
-                        'flight_number': flight_number,
-                        'airline': airline,
-                        'aircraft_type': aircraft_type,
-                        'departure_city': departure_city,
-                        'departure_airport': departure_airport,
-                        'arrival_city': arrival_city,
-                        'arrival_airport': arrival_airport,
-                        'departure_time': departure_time,
-                        'arrival_time': arrival_time,
+                        'flight_number': booking_details[0].strip(),
+                        'airline': booking_details[1].strip(),
+                        'aircraft_type': booking_details[2].strip(),
+                        'departure_city': booking_details[3].strip(),
+                        'departure_airport': booking_details[4].strip(),
+                        'arrival_city': booking_details[5].strip(),
+                        'arrival_airport': booking_details[6].strip(),
+                        'departure_time': booking_details[7].strip(),
+                        'arrival_time': booking_details[8].strip(),
                         'pnr_number': pnr_number,
-                        'first_name' : first_name,
-                        'last_name' : last_name,
-                        'age' : age,
-                        'gender' : gender,
-                        'mobile' : mobile,
-                        'email' : email
+                        'first_name': booking_details[10].strip(),
+                        'last_name': booking_details[11].strip(),
+                        'age': booking_details[12].strip(),
+                        'gender': booking_details[13].strip(),
+                        'mobile': booking_details[14].strip(),
+                        'email': booking_details[15].strip()
                     }
-                    print(context)
-                    return render(request, 'my_bookings.html', context)
-                else:
-                    return render(request, 'nobooking.html')
+                    break
+                elif posted_first_name.lower() == first_name.lower():
+                    found = True
+                    context = {
+                        'flight_number': booking_details[0].strip(),
+                        'airline': booking_details[1].strip(),
+                        'aircraft_type': booking_details[2].strip(),
+                        'departure_city': booking_details[3].strip(),
+                        'departure_airport': booking_details[4].strip(),
+                        'arrival_city': booking_details[5].strip(),
+                        'arrival_airport': booking_details[6].strip(),
+                        'departure_time': booking_details[7].strip(),
+                        'arrival_time': booking_details[8].strip(),
+                        'pnr_number': pnr_number,
+                        'first_name': booking_details[10].strip(),
+                        'last_name': booking_details[11].strip(),
+                        'age': booking_details[12].strip(),
+                        'gender': booking_details[13].strip(),
+                        'mobile': booking_details[14].strip(),
+                        'email': booking_details[15].strip()
+                    }
+                    break
+
+        if found:
+            return render(request, 'my_bookings.html', context)
+        else:
+            return render(request, 'nobooking.html')
+
 
                
 def generate_pnr():
